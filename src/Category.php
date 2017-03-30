@@ -37,6 +37,34 @@
             }
         }
 
+        function delete()
+        {
+            $executed = $GLOBALS['DB']->exec("DELETE FROM categories WHERE id = {$this->getId()};");
+             if (!$executed) {
+                 return false;
+             }
+             $executed = $GLOBALS['DB']->exec("DELETE FROM tasks WHERE category_id = {$this->getId()};");
+             if (!$executed) {
+                 return false;
+             } else {
+                 return true;
+             }
+        }
+
+        function getTasks()
+        {
+            $tasks = Array();
+            $returned_tasks = $GLOBALS['DB']->query("SELECT * FROM tasks WHERE category_id = {$this->getId()};");
+            foreach($returned_tasks as $task) {
+                $description = $task['description'];
+                $task_id = $task['id'];
+                $category_id = $task['category_id'];
+                $new_task = new Task($description, $category_id, $task_id);
+                array_push($tasks, $new_task);
+            }
+            return $tasks;
+        }
+
         static function getAll()
         {
             $returned_categories = $GLOBALS['DB']->query("SELECT * FROM categories;");
@@ -53,6 +81,17 @@
         static function deleteAll()
         {
           $GLOBALS['DB']->exec("DELETE FROM categories;");
+        }
+
+        function update($new_name)
+        {
+            $executed = $GLOBALS['DB']->exec("UPDATE categories SET name = '{$new_name}' WHERE id = {$this->getId()};");
+            if ($executed) {
+               $this->setName($new_name);
+               return true;
+            } else {
+               return false;
+            }
         }
 
         static function find($search_id)

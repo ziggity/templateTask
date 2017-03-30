@@ -17,7 +17,8 @@
 
         protected function tearDown()
         {
-          Category::deleteAll();
+            Category::deleteAll();
+            Task::deleteAll();
         }
 
         function test_getName()

@@ -1,8 +1,4 @@
-<html>
-<head>
-    <title>To Do List</title>
-</head>
-<body>
+{% include 'header.html.twig' %}
     <h1>{{ category.getName }}</h1>
 
     {% if tasks is not empty %}
@@ -24,6 +20,7 @@
         <button type='submit'>Add task</button>
     </form>
 
-    <p><a href='/'>Home</a></p>
-</body>
-</html>
+    <p><a href="/categories/{{ category.getId }}/edit">Edit this category</a></p>
+
+<p><a href='/'>Home</a></p>
+{% include 'pagebottom.html.twig' %}
