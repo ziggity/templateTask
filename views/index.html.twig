@@ -1,16 +1,27 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <script src="../scripts/jquery-3.2.0.js"></script>
-    <script src="../scripts/bootstrap.js"></script>
-    <script src="../scripts/scripts.js"></script>
-    <link href="../css/bootstrap.css" type="text/css" rel="stylesheet">
-    <link href="../css/styles.css" type="text/css" rel="stylesheet">
-    <title>Project Title</title>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Project Title</h1>
-    </div>
-  </body>
-</html>
+{% include 'header.html.twig' %}
+    <h1>Welcome to To Do List</h1>
+
+    <h3>Create a new category:</h3>
+
+    <form action="/categories" method="post">
+      <div class='form-group'>
+        <label for="name">Category name:</label>
+        <input id="name" name="name" type="text">
+      </div>
+      <div class='form-group'>
+        <button type="submit">Add category</button>
+      </div>
+    </form>
+
+    {% if categories is not empty %}
+        <p>Here are all your categories:</p>
+        <ul>
+            {% for category in categories %}
+                <li><a href="/categories/{{ category.getId }}">{{ category.getName }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+      <p>There are no categories yet!</p>
+    {% endif %}
+
+{% include 'pagebottom.html.twig' %}
