@@ -26,7 +26,7 @@ _No known bugs,_
 
 ## Support and contact details
 
-_If you run into any issues or have questions, ideas or concerns, please contact Rob McKenzie at mckenro@gmail.com_
+_If you run into any issues or have questions, ideas or concerns, please contact Zach at zachbeecher@gmail.com_
 
 ## Technologies Used
 * _Bootstrap 3.3.7_
