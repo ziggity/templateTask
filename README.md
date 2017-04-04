@@ -1,8 +1,8 @@
 # _PHP Project Template_
 
-#### _Starting template for php projects, March, 2017_
+#### _Starting template for php projects, April, 2017_
 
-#### By _**Rob McKenzie**_
+#### By _**Zach Beecher**_
 
 ## Description
 
@@ -39,4 +39,4 @@ _If you run into any issues or have questions, ideas or concerns, please contact
 
 *This project is licensed under the MIT license*
 
-Copyright (c) 2017 **_Rob McKenzie_**
+Copyright (c) 2017 **_Zach Beecher_**
